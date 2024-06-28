@@ -1,15 +1,5 @@
-<<<<<<< HEAD
-class Policyholder:
-    def __init__(self, policyholder_id, name, address, contact_details):
-        self.policyholder_id = policyholder_id
-        self.name = name
-        self.address = address
-        self.contact_details = contact_details
-            description=row[5],
-            documents=row[6]
-        )
-=======
 import re
+from datetime import datetime
 
 class Policyholder:
     def __init__(self, policyholder_id, name, address, contact_details):
@@ -37,7 +27,6 @@ class Policyholder:
             address=row[2],
             contact_details={"phone": row[3], "email": row[4]}
         )
-from datetime import datetime
 
 class Policy:
     def __init__(self, policy_id, policyholder_id, policy_type, start_date, end_date, premium_amount, coverage_details):
@@ -74,6 +63,7 @@ class Policy:
             premium_amount=row[5],
             coverage_details=row[6]
         )
+
 class Claim:
     def __init__(self, claim_id, policy_id, claim_date, claim_amount, claim_status, description, documents):
         if not isinstance(policy_id, int) or policy_id <= 0:
@@ -110,5 +100,3 @@ class Claim:
             description=row[5],
             documents=row[6]
         )
-    
->>>>>>> 328ceff (Add initial directory structure and files for CMS project)
