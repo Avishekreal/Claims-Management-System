@@ -1,34 +1,12 @@
-<<<<<<< HEAD
-from database import Database
-from entities import Policyholder, Policy, Claim
-
-class ClaimsManagementSystem:
-    def __init__(self, db_name="cms.db"):
-        self.db = Database(db_name)
-
-    def create_policyholder(self, policyholder):
-        self.db.create_policyholder(policyholder)
-
-    def read_policyholder(self, policyholder_id):
-        row = self.db.read_policyholder(policyholder_id)
-        return Policyholder.from_row(row) if row else None
-
-    def update_policyholder(self, policyholder):
-        self.db.update_policyholder(policyholder)
-
-    
-
-  
-=======
-# claims_management_system.py
+# claims_management_system.py# claims_management_system.py
 
 from database import Database
 from entities import Policyholder, Policy, Claim
 
 class ClaimsManagementSystem:
-    def __init__(self, cms_db, postgres, password, host="localhost", port="5432"):
-        self.db = Database("cms_db", "postgres", "password", "localhost", "5432")
-        
+    def __init__(self, db_name="cms_db", user="postgres", password="password", host="localhost", port="5432"):
+        self.db = Database(db_name, user, password, host, port)
+
     # Policyholder CRUD operations
     def create_policyholder(self, policyholder):
         self.db.create_policyholder(policyholder)
@@ -67,4 +45,6 @@ class ClaimsManagementSystem:
 
     def delete_claim(self, claim_id):
         self.db.delete_claim(claim_id)
->>>>>>> 328ceff (Add initial directory structure and files for CMS project)
+
+
+
